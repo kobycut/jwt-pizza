@@ -133,209 +133,209 @@ test("purchase with login", async ({ page }) => {
 //   await page.getByRole("link", { name: "Logout" }).click();
 // });
 
-// test("franchise test", async ({ page }) => {
-//   await page.route("*/**/api/auth", async (route) => {
-//     const franchiseReq = {
-//       email: "f@jwt.com",
-//       password: "franchisee",
-//     };
-//     const franchiseRes = {
-//       user: {
-//         id: 3,
-//         name: "pizza franchisee",
-//         email: "f@jwt.com",
-//         roles: [
-//           {
-//             role: "diner",
-//           },
-//           {
-//             objectId: 1,
-//             role: "franchisee",
-//           },
-//         ],
-//       },
-//       token:
-//         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6InBpenphIGZyYW5jaGlzZWUiLCJlbWFpbCI6ImZAand0LmNvbSIsInJvbGVzIjpbeyJyb2xlIjoiZGluZXIifSx7Im9iamVjdElkIjoxLCJyb2xlIjoiZnJhbmNoaXNlZSJ9XSwiaWF0IjoxNzM5NTg4NzQyfQ.YZgoesC5g_s_c_QvzHxUD2hM4Ll4PyxJFk1GkXUDmhc",
-//     };
-//     expect(route.request().method()).toBe("PUT");
-//     expect(route.request().postDataJSON()).toMatchObject(franchiseReq);
-//     await route.fulfill({ json: franchiseRes });
-//   });
+test("franchise test", async ({ page }) => {
+  await page.route("*/**/api/auth", async (route) => {
+    const franchiseReq = {
+      email: "f@jwt.com",
+      password: "franchisee",
+    };
+    const franchiseRes = {
+      user: {
+        id: 3,
+        name: "pizza franchisee",
+        email: "f@jwt.com",
+        roles: [
+          {
+            role: "diner",
+          },
+          {
+            objectId: 1,
+            role: "franchisee",
+          },
+        ],
+      },
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6InBpenphIGZyYW5jaGlzZWUiLCJlbWFpbCI6ImZAand0LmNvbSIsInJvbGVzIjpbeyJyb2xlIjoiZGluZXIifSx7Im9iamVjdElkIjoxLCJyb2xlIjoiZnJhbmNoaXNlZSJ9XSwiaWF0IjoxNzM5NTg4NzQyfQ.YZgoesC5g_s_c_QvzHxUD2hM4Ll4PyxJFk1GkXUDmhc",
+    };
+    expect(route.request().method()).toBe("PUT");
+    expect(route.request().postDataJSON()).toMatchObject(franchiseReq);
+    await route.fulfill({ json: franchiseRes });
+  });
 
-//   await page.route("*/**/api/franchise/3", async (route) => {
-//     const franchiseRes = [
-//       {
-//         id: 1,
-//         name: "pizzaPocket",
-//         admins: [
-//           {
-//             id: 3,
-//             name: "pizza franchisee",
-//             email: "f@jwt.com",
-//           },
-//         ],
-//         stores: [
-//           {
-//             id: 1,
-//             name: "SLC",
-//             totalRevenue: 0.3849,
-//           },
-//           {
-//             id: 11,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 13,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 33,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 34,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 35,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 36,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 37,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//         ],
-//       },
-//     ];
-//     expect(route.request().method()).toBe("GET");
-//     await route.fulfill({ json: franchiseRes });
-//   });
+  await page.route("*/**/api/franchise/3", async (route) => {
+    const franchiseRes = [
+      {
+        id: 1,
+        name: "pizzaPocket",
+        admins: [
+          {
+            id: 3,
+            name: "pizza franchisee",
+            email: "f@jwt.com",
+          },
+        ],
+        stores: [
+          {
+            id: 1,
+            name: "SLC",
+            totalRevenue: 0.3849,
+          },
+          {
+            id: 11,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 13,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 33,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 34,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 35,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 36,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 37,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+        ],
+      },
+    ];
+    expect(route.request().method()).toBe("GET");
+    await route.fulfill({ json: franchiseRes });
+  });
 
-//   await page.route("*/**/api/franchise/1/store", async (route) => {
-//     const franchiseReq = {
-//       id: "",
-//       name: "kobys store",
-//     };
-//     const franshiseRes = {
-//       id: 38,
-//       franchiseId: 1,
-//       name: "kobys store",
-//     };
-//     expect(route.request().method()).toBe("POST");
-//     expect(route.request().postDataJSON()).toMatchObject(franchiseReq);
-//     await route.fulfill({ json: franshiseRes });
-//   });
+  await page.route("*/**/api/franchise/1/store", async (route) => {
+    const franchiseReq = {
+      id: "",
+      name: "kobys store",
+    };
+    const franshiseRes = {
+      id: 38,
+      franchiseId: 1,
+      name: "kobys store",
+    };
+    expect(route.request().method()).toBe("POST");
+    expect(route.request().postDataJSON()).toMatchObject(franchiseReq);
+    await route.fulfill({ json: franshiseRes });
+  });
 
-//   await page.route("*/**/api/franchise/3", async (route) => {
-//     const franchiseRes = [
-//       {
-//         id: 1,
-//         name: "pizzaPocket",
-//         admins: [
-//           {
-//             id: 3,
-//             name: "pizza franchisee",
-//             email: "f@jwt.com",
-//           },
-//         ],
-//         stores: [
-//           {
-//             id: 1,
-//             name: "SLC",
-//             totalRevenue: 0.3849,
-//           },
-//           {
-//             id: 11,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 13,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 33,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 34,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 35,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 36,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 37,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//           {
-//             id: 38,
-//             name: "kobys store",
-//             totalRevenue: 0,
-//           },
-//         ],
-//       },
-//     ];
-//     expect(route.request().method()).toBe("GET");
-//     await route.fulfill({ json: franchiseRes });
-//   });
+  await page.route("*/**/api/franchise/3", async (route) => {
+    const franchiseRes = [
+      {
+        id: 1,
+        name: "pizzaPocket",
+        admins: [
+          {
+            id: 3,
+            name: "pizza franchisee",
+            email: "f@jwt.com",
+          },
+        ],
+        stores: [
+          {
+            id: 1,
+            name: "SLC",
+            totalRevenue: 0.3849,
+          },
+          {
+            id: 11,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 13,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 33,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 34,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 35,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 36,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 37,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+          {
+            id: 38,
+            name: "kobys store",
+            totalRevenue: 0,
+          },
+        ],
+      },
+    ];
+    expect(route.request().method()).toBe("GET");
+    await route.fulfill({ json: franchiseRes });
+  });
 
-//   await page.route("*/**/api/franchise/1/store/33", async (route) => {
-//     const franchiseRes = {
-//       message: "store deleted",
-//     };
-//     expect(route.request().method()).toBe("DELETE");
-//     await route.fulfill({ json: franchiseRes });
-//   });
+  await page.route("*/**/api/franchise/1/store/33", async (route) => {
+    const franchiseRes = {
+      message: "store deleted",
+    };
+    expect(route.request().method()).toBe("DELETE");
+    await route.fulfill({ json: franchiseRes });
+  });
 
-//   await page.goto("http://localhost:5173/");
-//   await page.getByRole("link", { name: "Login" }).click();
-//   await page.getByRole("textbox", { name: "Email address" }).fill("f@jwt.com");
-//   await page.getByRole("textbox", { name: "Email address" }).press("Tab");
-//   await page.getByRole("textbox", { name: "Password" }).fill("franchisee");
-//   await page.getByRole("button", { name: "Login" }).click();
-//   await expect(page.locator("#navbar-dark")).toContainText("Franchise");
-//   await page
-//     .getByLabel("Global")
-//     .getByRole("link", { name: "Franchise" })
-//     .click();
-//   await page
-//     .getByLabel("Global")
-//     .getByRole("link", { name: "Franchise" })
-//     .click();
-//   await page
-//     .getByLabel("Global")
-//     .getByRole("link", { name: "Franchise" })
-//     .click();
-//   await page.getByRole("button", { name: "Create store" }).click();
-//   await page.getByRole("textbox", { name: "store name" }).click();
-//   await page.getByRole("textbox", { name: "store name" }).fill("kobys store");
-//   await page.getByRole("button", { name: "Create" }).click();
-//   await page.getByRole("button", { name: "Close" }).nth(3).click();
-//   await page.getByRole("button", { name: "Close" }).click();
-// });
+  await page.goto("http://localhost:5173/");
+  await page.getByRole("link", { name: "Login" }).click();
+  await page.getByRole("textbox", { name: "Email address" }).fill("f@jwt.com");
+  await page.getByRole("textbox", { name: "Email address" }).press("Tab");
+  await page.getByRole("textbox", { name: "Password" }).fill("franchisee");
+  await page.getByRole("button", { name: "Login" }).click();
+  await expect(page.locator("#navbar-dark")).toContainText("Franchise");
+  await page
+    .getByLabel("Global")
+    .getByRole("link", { name: "Franchise" })
+    .click();
+  await page
+    .getByLabel("Global")
+    .getByRole("link", { name: "Franchise" })
+    .click();
+  await page
+    .getByLabel("Global")
+    .getByRole("link", { name: "Franchise" })
+    .click();
+  await page.getByRole("button", { name: "Create store" }).click();
+  await page.getByRole("textbox", { name: "store name" }).click();
+  await page.getByRole("textbox", { name: "store name" }).fill("kobys store");
+  await page.getByRole("button", { name: "Create" }).click();
+  await page.getByRole("button", { name: "Close" }).nth(3).click();
+  await page.getByRole("button", { name: "Close" }).click();
+});
 
 test("register test", async ({ page }) => {
   await page.route("*/**/api/auth", async (route) => {
