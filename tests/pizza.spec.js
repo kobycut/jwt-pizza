@@ -451,10 +451,11 @@ test('Create a franchise', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Login' }).click();
   await page.getByRole('textbox', { name: 'Email address' }).fill('a@jwt.com');
+  
   await page.getByRole('textbox', { name: 'Password' }).fill('admin');
   await page.getByRole('button', { name: 'Login' }).click();
 
-  
+
   await page.getByRole('link', { name: 'Admin' }).click();
   await page.getByRole('button', { name: 'Add Franchise' }).click();
   await expect(page.getByRole('heading')).toContainText('Create franchise');
