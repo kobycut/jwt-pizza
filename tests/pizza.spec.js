@@ -337,78 +337,78 @@ test("purchase with login", async ({ page }) => {
 //   await page.getByRole("button", { name: "Close" }).click();
 // });
 
-// test("register test", async ({ page }) => {
-//   await page.route("*/**/api/auth", async (route) => {
-//     const registerReq = {
-//       name: "newUser",
-//       email: "user@jwt.com",
-//       password: "user",
-//     };
-//     const registerRes = {
-//       user: {
-//         name: "newUser",
-//         email: "user@jwt.com",
-//         roles: [
-//           {
-//             role: "diner",
-//           },
-//         ],
-//         id: 47,
-//       },
-//       token:
-//         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmV3VXNlciIsImVtYWlsIjoidXNlckBqd3QuY29tIiwicm9sZXMiOlt7InJvbGUiOiJkaW5lciJ9XSwiaWQiOjQ3LCJpYXQiOjE3Mzk1OTAyMDF9.5-YdOMkbgV_u1R84ztOBlcaRenlgM5nGraMPgxWCkrA",
-//     };
-//     expect(route.request().method()).toBe("POST");
-//     expect(route.request().postDataJSON()).toMatchObject(registerReq);
-//     await route.fulfill({ json: registerRes });
-//   });
+test("register test", async ({ page }) => {
+  await page.route("*/**/api/auth", async (route) => {
+    const registerReq = {
+      name: "newUser",
+      email: "user@jwt.com",
+      password: "user",
+    };
+    const registerRes = {
+      user: {
+        name: "newUser",
+        email: "user@jwt.com",
+        roles: [
+          {
+            role: "diner",
+          },
+        ],
+        id: 47,
+      },
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmV3VXNlciIsImVtYWlsIjoidXNlckBqd3QuY29tIiwicm9sZXMiOlt7InJvbGUiOiJkaW5lciJ9XSwiaWQiOjQ3LCJpYXQiOjE3Mzk1OTAyMDF9.5-YdOMkbgV_u1R84ztOBlcaRenlgM5nGraMPgxWCkrA",
+    };
+    expect(route.request().method()).toBe("POST");
+    expect(route.request().postDataJSON()).toMatchObject(registerReq);
+    await route.fulfill({ json: registerRes });
+  });
 
-//   await page.route("*/**/api/franchise/47", async (route) => {
-//     const registerRes = [];
-//     expect(route.request().method()).toBe("GET");
-//     await route.fulfill({ json: registerRes });
-//   });
+  await page.route("*/**/api/franchise/47", async (route) => {
+    const registerRes = [];
+    expect(route.request().method()).toBe("GET");
+    await route.fulfill({ json: registerRes });
+  });
 
-//   await page.goto("http://localhost:5173/");
-//   await page.getByRole("link", { name: "Register" }).click();
-//   await page.getByRole("textbox", { name: "Full name" }).fill("newUser");
-//   await page.getByRole("textbox", { name: "Full name" }).press("Tab");
-//   await page.getByRole("textbox", { name: "Email address" }).fill("user");
-//   await page.getByRole("textbox", { name: "Email address" }).press("Tab");
-//   await page.getByRole("textbox", { name: "Password" }).fill("user");
-//   await page.getByRole("button", { name: "Register" }).click();
-//   await page
-//     .getByRole("textbox", { name: "Email address" })
-//     .fill("user@jwt.com");
-//   await page.getByRole("button", { name: "Register" }).click();
-//   await page.getByRole("link", { name: "About" }).click();
-//   await page.getByRole("link", { name: "History" }).click();
-//   await page
-//     .getByRole("contentinfo")
-//     .getByRole("link", { name: "Franchise" })
-//     .click();
-// });
-
-test("admin test", async ({ page }) => {
   await page.goto("http://localhost:5173/");
-  await page.getByRole("link", { name: "Login" }).click();
-  await page.getByRole("textbox", { name: "Email address" }).fill("a@jwt.com");
+  await page.getByRole("link", { name: "Register" }).click();
+  await page.getByRole("textbox", { name: "Full name" }).fill("newUser");
+  await page.getByRole("textbox", { name: "Full name" }).press("Tab");
+  await page.getByRole("textbox", { name: "Email address" }).fill("user");
   await page.getByRole("textbox", { name: "Email address" }).press("Tab");
-  await page.getByRole("textbox", { name: "Password" }).fill("admin");
-  await page.getByRole("textbox", { name: "Password" }).press("Enter");
-  await page.getByRole("button", { name: "Login" }).click();
-  await page.getByRole("link", { name: "Admin" }).click();
-  await page.getByRole("button", { name: "Add Franchise" }).click();
-  await page.getByRole("textbox", { name: "franchise name" }).click();
+  await page.getByRole("textbox", { name: "Password" }).fill("user");
+  await page.getByRole("button", { name: "Register" }).click();
   await page
-    .getByRole("textbox", { name: "franchise name" })
-    .fill("hello world2");
-  await page.getByRole("textbox", { name: "franchisee admin email" }).click();
+    .getByRole("textbox", { name: "Email address" })
+    .fill("user@jwt.com");
+  await page.getByRole("button", { name: "Register" }).click();
+  await page.getByRole("link", { name: "About" }).click();
+  await page.getByRole("link", { name: "History" }).click();
   await page
-    .getByRole("textbox", { name: "franchisee admin email" })
-    .fill("f@jwt.com");
-  await page.getByRole("button", { name: "Create" }).click();
+    .getByRole("contentinfo")
+    .getByRole("link", { name: "Franchise" })
+    .click();
 });
+
+// test("admin test", async ({ page }) => {
+//   await page.goto("http://localhost:5173/");
+//   await page.getByRole("link", { name: "Login" }).click();
+//   await page.getByRole("textbox", { name: "Email address" }).fill("a@jwt.com");
+//   await page.getByRole("textbox", { name: "Email address" }).press("Tab");
+//   await page.getByRole("textbox", { name: "Password" }).fill("admin");
+//   await page.getByRole("textbox", { name: "Password" }).press("Enter");
+//   await page.getByRole("button", { name: "Login" }).click();
+//   await page.getByRole("link", { name: "Admin" }).click();
+//   await page.getByRole("button", { name: "Add Franchise" }).click();
+//   await page.getByRole("textbox", { name: "franchise name" }).click();
+//   await page
+//     .getByRole("textbox", { name: "franchise name" })
+//     .fill("hello world2");
+//   await page.getByRole("textbox", { name: "franchisee admin email" }).click();
+//   await page
+//     .getByRole("textbox", { name: "franchisee admin email" })
+//     .fill("f@jwt.com");
+//   await page.getByRole("button", { name: "Create" }).click();
+// });
 
 test('Create a franchise', async ({ page }) => {
   await page.route('*/**/api/auth', async (route) => {
