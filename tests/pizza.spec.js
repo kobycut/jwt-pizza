@@ -389,26 +389,26 @@ test("purchase with login", async ({ page }) => {
 //     .click();
 // });
 
-// test("admin test", async ({ page }) => {
-//   await page.goto("http://localhost:5173/");
-//   await page.getByRole("link", { name: "Login" }).click();
-//   await page.getByRole("textbox", { name: "Email address" }).fill("a@jwt.com");
-//   await page.getByRole("textbox", { name: "Email address" }).press("Tab");
-//   await page.getByRole("textbox", { name: "Password" }).fill("admin");
-//   await page.getByRole("textbox", { name: "Password" }).press("Enter");
-//   await page.getByRole("button", { name: "Login" }).click();
-//   await page.getByRole("link", { name: "Admin" }).click();
-//   await page.getByRole("button", { name: "Add Franchise" }).click();
-//   await page.getByRole("textbox", { name: "franchise name" }).click();
-//   await page
-//     .getByRole("textbox", { name: "franchise name" })
-//     .fill("hello world2");
-//   await page.getByRole("textbox", { name: "franchisee admin email" }).click();
-//   await page
-//     .getByRole("textbox", { name: "franchisee admin email" })
-//     .fill("f@jwt.com");
-//   await page.getByRole("button", { name: "Create" }).click();
-// });
+test("admin test", async ({ page }) => {
+  await page.goto("http://localhost:5173/");
+  await page.getByRole("link", { name: "Login" }).click();
+  await page.getByRole("textbox", { name: "Email address" }).fill("a@jwt.com");
+  await page.getByRole("textbox", { name: "Email address" }).press("Tab");
+  await page.getByRole("textbox", { name: "Password" }).fill("admin");
+  await page.getByRole("textbox", { name: "Password" }).press("Enter");
+  await page.getByRole("button", { name: "Login" }).click();
+  await page.getByRole("link", { name: "Admin" }).click();
+  await page.getByRole("button", { name: "Add Franchise" }).click();
+  await page.getByRole("textbox", { name: "franchise name" }).click();
+  await page
+    .getByRole("textbox", { name: "franchise name" })
+    .fill("hello world2");
+  await page.getByRole("textbox", { name: "franchisee admin email" }).click();
+  await page
+    .getByRole("textbox", { name: "franchisee admin email" })
+    .fill("f@jwt.com");
+  await page.getByRole("button", { name: "Create" }).click();
+});
 
 test('Create a franchise', async ({ page }) => {
   await page.route('*/**/api/auth', async (route) => {
