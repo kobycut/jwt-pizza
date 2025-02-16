@@ -451,7 +451,7 @@ test('Create a franchise', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Login' }).click();
   await page.getByRole('textbox', { name: 'Email address' }).fill('a@jwt.com');
-  
+
   await page.getByRole('textbox', { name: 'Password' }).fill('admin');
   await page.getByRole('button', { name: 'Login' }).click();
 
@@ -462,5 +462,6 @@ test('Create a franchise', async ({ page }) => {
   await page.getByRole('textbox', { name: 'franchise name' }).fill('TestFranchise');
   await page.getByRole('textbox', { name: 'franchisee admin email' }).fill('f@jwt.com');
   await page.getByRole('button', { name: 'Create' }).click();
+  
   await expect(page.getByRole('table')).toContainText('TestFranchise');
 });
