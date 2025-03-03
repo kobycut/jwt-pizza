@@ -78,6 +78,7 @@ export default function App() {
     { title: 'Create franchise', to: '/:subPath?/create-franchise', component: <CreateFranchise />, display: [] },
     { title: 'Close franchise', to: '/:subPath?/close-franchise', component: <CloseFranchise />, display: [] },
     { title: 'Create store', to: '/:subPath?/create-store', component: <CreateStore />, display: [] },
+    
     { title: 'Close store', to: '/:subPath?/close-store', component: <CloseStore />, display: [] },
     { title: 'Payment', to: '/payment', component: <Payment />, display: [] },
     { title: 'Delivery', to: '/delivery', component: <Delivery />, display: [] },
