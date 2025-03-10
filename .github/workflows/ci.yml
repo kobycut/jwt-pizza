@@ -55,8 +55,8 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     environment:
-      name: production
-      url: https://pizza.kobycut.click
+      name: staging
+      url: https://stage-pizza.kobycut.click
     env:
       version: ${{needs.build.outputs.version}}
     steps:
