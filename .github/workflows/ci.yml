@@ -56,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://service-pizza.kobycut.click
+      url: https://pizza-service.kobycut.click
     env:
       version: ${{needs.build.outputs.version}}
     steps:
